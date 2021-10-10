@@ -609,7 +609,7 @@ export const TextArea = (props: Props) => {
 };
 
 const cv = function (e) {
-  var n = e.name,
+  const n = e.name,
     t = e.arr,
     r = e.type,
     a = e.size,
@@ -637,14 +637,13 @@ const cv = function (e) {
   );
 };
 
-const ov = function (e) {
-  const n = e.name;
-  const t = e.value;
+const ov = function (props: { name: string; value?: string }) {
+  const { name, value } = props;
 
-  return <span className={n}>{t && t}</span>;
+  return <span className={name}>{value && value}</span>;
 };
 
-// this is function to work with korean, chinese, japanese text
+// TODO: this is function to work with korean, chinese, japanese text
 const lv = function (e) {
   var n = !1,
     t = !1,
