@@ -1,12 +1,179 @@
-$bg-color: yellow;
-$border-color: red;
+body {
+    height: 100vh;
+    font-size: 10px;
+    background-color: #18191A;
+}
 
 .app {
-  font-family: helvetica, arial, sans-serif;
-  padding: 2em;
-  border: 5px solid $border-color;
+    font-family: helvetica, arial, sans-serif;
+    padding: 0;
+}
 
-  p {
-    background-color: $bg-color;
-  }
+.logo {
+    color: #fff;
+}
+
+.toolbar {
+    margin-top: 16px;
+}
+
+.container {
+    position: relative;
+    width: 900px;
+    height: 100vh;
+    margin: auto;
+}
+
+.typing--area {
+    position: absolute;
+    width: 100%;
+    overflow: hidden auto;
+    transform: translateY(0%);
+    max-height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 2.5px;
+    color: #666;
+    //font-family: "Noto Serif KR";
+    font-size: 25px;
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 1.1px;
+    white-space: pre-line;
+    cursor: grab;
+}
+
+input, textarea {
+    padding: 0;
+    margin: 0;
+    -ms-user-select: auto;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    user-select: auto;
+}
+
+textarea {
+    resize: none;
+}
+
+.textarea {
+    position: absolute;
+    transform: translate(-50%, 50%);
+    width: 1rem;
+    height: 1rem;
+    user-select: auto;
+    opacity: 0;
+    color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    background: none;
+    z-index: -999;
+}
+
+ul {
+    width: 100%;
+    padding: 0px;
+    list-style: none;
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+span.isNext {
+    white-space: pre;
+}
+
+@-webkit-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+span.isNext span.caret {
+    top: calc((100% - 25px) / 2);
+    left: 0px;
+    width: 2.5px;
+    height: 25px;
+    background: rgb(254, 191, 0);
+    animation: 1s step-end 0s infinite normal none running blink;
+}
+
+ul > li > span.isNext > span.caret.space {
+    top: calc((100% - 25px) / 2 + 22.5px);
+    width: 100%;
+    height: 2.5px;
+}
+
+ul > li > span.isNext > span.caret.enter {
+    top: calc((100% - 25px) / 2 + 20px);
+    width: 5px; height: 5px;
+    border-bottom: 2.5px solid rgb(254, 191, 0);
+    border-right: 2.5px solid rgb(254, 191, 0);
+    background: rgba(0, 0, 0, 0);
+}
+
+ul > li > span.isNow {
+    color: rgba(0, 0, 0, 0);
+}
+
+ul > li > span {
+    position: relative;
+    display: inline-block;
+}
+
+ul > li > span > span {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+ul > li > span.isNow > span.now {
+    top: 0px;
+    left: 0px;
+    color: rgb(51, 51, 51);
+}
+
+ul > li > span.isNow > span.now.wrong {
+    color: rgb(255, 78, 62);
+}
+
+ul > li {
+    position: relative;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    white-space: pre-wrap;
+}
+
+ul > li > span {
+    position: relative;
+    display: inline-block;
+}
+
+ul > li > span.isPast {
+    color: #fff;
+}
+
+ul > li > span.isPast.wrong {
+    color: #f02849;
+}
+
+.stats {
+    padding-bottom: 16px;
+    border-bottom: 2px solid #2d88ff;
+    font-size: 28px;
+    display: flex;
+    justify-content: space-between;
+    color: #2d88ff;
+}
+
+.stats-block {
+    display: block;
+    flex-direction: column;
+}
+
+.stats-block--description {
+    font-size: 12px;
 }
